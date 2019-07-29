@@ -1,0 +1,46 @@
+{
+  "goals": [
+    {
+      "id": 1,
+      "goal": "To complete NSS"
+    },
+    {
+      "id": 2,
+      "goal": "To be debt free"
+    }
+  ],
+  "steps": [
+    {
+      "id": 1,
+      "goalId": 1,
+      "step": "Complete front-end Capstone"
+    },
+    {
+      "id": 2,
+      "goalId": 2,
+      "step": "To complete Financial Peace University"
+    }
+  ],
+  "journal": [
+    {
+      "id": 1,
+      "entry": "It's an exciting journey!",
+      "goalId": 1
+    },
+    {
+      "id": 2,
+      "entry": "Ready to live free of debt",
+      "goalId": 2
+    }
+  ],
+  "rewards": [
+    {
+      "id": 1,
+      "name": "Target Gift Card"
+    },
+    {
+      "id": 2,
+      "words": "Congrats! You are on your way to completion!"
+    }
+  ]
+}
