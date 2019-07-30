@@ -11,7 +11,7 @@ export default class Dream extends Component {
       <React.Fragment>
         <NavBar />
         <Login />
-        {/* <ApplicationViews /> */}
+        <ApplicationViews />
       </React.Fragment>
     );
   }

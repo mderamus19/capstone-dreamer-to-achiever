@@ -2,11 +2,13 @@
   "users": [
     {
       "id": 1,
+      "userId":1,
       "username": "Misty",
       "password": "help"
     },
     {
       "id": 2,
+      "userId":2,
       "username": "Rita",
       "password":"1234"
     }
