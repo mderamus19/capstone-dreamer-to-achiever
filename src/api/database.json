@@ -1,46 +1,85 @@
 {
-  "goals": [
+  "users": [
     {
       "id": 1,
-      "goal": "To complete NSS"
+      "username": "Misty",
+      "password": "help"
     },
     {
       "id": 2,
-      "goal": "To be debt free"
+      "username": "Rita",
+      "password":"1234"
+    }
+  ],
+  "goals": [
+    {
+      "id": 1,
+      "userId":1,
+      "rewardId": 1,
+      "goal": "To complete NSS",
+      "start date":"2019-08-01",
+      "end date":"2019-08-09",
+      "completed": "false"
+    },
+    {
+      "id": 2,
+      "userId":2,
+      "rewardId": 2,
+      "goal": "To be debt free",
+      "start date":"2019-08-01",
+      "end date":"2019-08-09",
+      "completed":"false"
     }
   ],
   "steps": [
     {
       "id": 1,
       "goalId": 1,
-      "step": "Complete front-end Capstone"
+      "rewardId":3,
+      "step": "Complete front-end Capstone",
+      "completed":"false"
     },
     {
       "id": 2,
       "goalId": 2,
-      "step": "To complete Financial Peace University"
+      "rewardId":4,
+      "step": "To complete Financial Peace University",
+      "completed":"false"
     }
   ],
   "journal": [
     {
       "id": 1,
-      "entry": "It's an exciting journey!",
-      "goalId": 1
+      "goalId": 1,
+      "entry": "It's an exciting journey!"
+
     },
     {
       "id": 2,
-      "entry": "Ready to live free of debt",
-      "goalId": 2
+      "goalId": 2,
+      "entry": "Ready to live free of debt"
     }
   ],
   "rewards": [
     {
       "id": 1,
-      "name": "Target Gift Card"
+      "name": "Target Gift Card",
+      "typeId":1
     },
     {
       "id": 2,
-      "words": "Congrats! You are on your way to completion!"
+      "name": "WalMart Gift Card",
+      "typeId": 1
+    },
+    {
+      "id": 3,
+      "word": "Great Job! Keep moving forward!",
+      "typeId": 2
+    },
+    {
+      "id":4,
+      "word": "Congrats! You are on your way to completion!",
+      "typeId": 2
     }
   ]
 }
