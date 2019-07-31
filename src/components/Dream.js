@@ -10,7 +10,6 @@ export default class Dream extends Component {
     return (
       <React.Fragment>
         <NavBar />
-        <Login />
         <ApplicationViews />
       </React.Fragment>
     );
