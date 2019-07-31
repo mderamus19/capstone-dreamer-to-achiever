@@ -2,49 +2,61 @@
   "users": [
     {
       "id": 1,
+      "userId": 1,
       "username": "Misty",
       "password": "help"
     },
     {
       "id": 2,
+      "userId": 2,
       "username": "Rita",
-      "password":"1234"
+      "password": "1234"
+    },
+    {
+      "username": "Sharon",
+      "password": "spice",
+      "id": 3
+    },
+    {
+      "username": "john",
+      "password": "run",
+      "id": 4
     }
   ],
   "goals": [
     {
       "id": 1,
-      "userId":1,
+      "userId": 1,
       "rewardId": 1,
       "goal": "To complete NSS",
-      "start date":"2019-08-01",
-      "end date":"2019-08-09",
+      "start date": "2019-08-01",
+      "end date": "2019-08-09",
       "completed": "false"
     },
     {
       "id": 2,
-      "userId":2,
+      "userId": 2,
       "rewardId": 2,
       "goal": "To be debt free",
-      "start date":"2019-08-01",
-      "end date":"2019-08-09",
-      "completed":"false"
+      "start date": "2019-08-01",
+      "end date": "2019-08-09",
+      "completed": "false"
     }
   ],
   "steps": [
     {
       "id": 1,
       "goalId": 1,
-      "rewardId":3,
+      "rewardId": 3,
       "step": "Complete front-end Capstone",
-      "completed":"false"
+      "completed": "false"
     },
     {
       "id": 2,
       "goalId": 2,
-      "rewardId":4,
+      "rewardId": 4,
       "step": "To complete Financial Peace University",
-      "completed":"false"
+      "completed": "false"
     }
   ],
   "journal": [
@@ -52,7 +64,6 @@
       "id": 1,
       "goalId": 1,
       "entry": "It's an exciting journey!"
-
     },
     {
       "id": 2,
@@ -64,7 +75,7 @@
     {
       "id": 1,
       "name": "Target Gift Card",
-      "typeId":1
+      "typeId": 1
     },
     {
       "id": 2,
@@ -77,7 +88,7 @@
       "typeId": 2
     },
     {
-      "id":4,
+      "id": 4,
       "word": "Congrats! You are on your way to completion!",
       "typeId": 2
     }
