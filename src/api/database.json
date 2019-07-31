@@ -21,6 +21,22 @@
       "username": "john",
       "password": "run",
       "id": 4
+    },
+    {
+      "userId": 1,
+      "goal": "hi hi ",
+      "startDate": "",
+      "endDate": "",
+      "completed": false,
+      "id": 5
+    },
+    {
+      "userId": 1,
+      "goal": "Complete MVP",
+      "startDate": "",
+      "endDate": "",
+      "completed": false,
+      "id": 6
     }
   ],
   "goals": [
