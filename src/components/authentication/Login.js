@@ -11,7 +11,7 @@ import {
 import "./Login.css";
 import APIManager from "../modules/APIManager";
 import { withRouter } from "react-router-dom";
-import Register from "./Register";
+// import Register from "./Register";
 // import { Link } from "react-router-dom";
 
 class Login extends Component {
@@ -31,22 +31,6 @@ class Login extends Component {
   // Simplistic handler for login submit
   handleLogin = e => {
     e.preventDefault();
-    //     if (this.state.username === "" || this.state.password === "") {
-    //       alert("Oops! Please enter username and password");
-    //     }
-    //     let sameUser = this.props.users.find(
-    //       user =>
-    //         user.username === this.state.username &&
-    //         user.password === this.state.password
-    //     );
-    //     if (sameUser !== undefined) {
-    //       sessionStorage.setItem("id", sameUser.id);
-    //       this.props.history.push("/goals");
-    //     } else {
-    //       alert("Password or username not found. Try again or register!");
-    //     }
-    //   };
-
 
     APIManager.get(this.state.username).then(result => {
       console.log("result", result);
