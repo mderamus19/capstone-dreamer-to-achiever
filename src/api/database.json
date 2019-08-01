@@ -58,26 +58,47 @@
       "endDate": "",
       "completed": false,
       "id": 10
+    },
+    {
+      "userId": null,
+      "goal": "To complete MVP",
+      "startDate": "",
+      "endDate": "",
+      "completed": false,
+      "id": 11
+    },
+    {
+      "userId": null,
+      "goal": "To please fix it Jesus",
+      "startDate": "",
+      "endDate": "",
+      "completed": false,
+      "id": 12
+    },
+    {
+      "userId": null,
+      "rewardId": "4",
+      "goal": "Thank you Jesus",
+      "startDate": "2019-08-08",
+      "endDate": "2019-08-16",
+      "completed": false,
+      "id": 13
+    },
+    {
+      "username": "Heather",
+      "password": "Hugh",
+      "id": 14
     }
   ],
   "goals": [
     {
-      "id": 1,
-      "userId": 1,
-      "rewardId": 1,
-      "goal": "To complete NSS",
-      "start date": "2019-08-01",
-      "end date": "2019-08-09",
-      "completed": "false"
-    },
-    {
-      "id": 2,
-      "userId": 1,
-      "rewardId": 1,
-      "goal": "To be debt free",
-      "start date": "2019-09-01",
-      "end date": "2019-09-09",
-      "completed": "false"
+      "userId": 14,
+      "rewardId": "1",
+      "goal": "Yes to achieve",
+      "startDate": "2019-08-02",
+      "endDate": "2019-08-04",
+      "completed": false,
+      "id": 1
     }
   ],
   "steps": [

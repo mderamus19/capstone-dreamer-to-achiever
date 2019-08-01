@@ -22,13 +22,13 @@ export default {
     return fetch(`${remoteURL}/users?username=${username}`).then(e => e.json());
   },
 
-  post(user) {
-    return fetch(`${remoteURL}/users`, {
+  post(resourceObj,resources) {
+    return fetch(`${remoteURL}/${resources}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify(user)
+      body: JSON.stringify(resourceObj)
     }).then(results => results.json());
   }
 };

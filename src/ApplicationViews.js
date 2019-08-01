@@ -66,7 +66,7 @@ export default class ApplicationViews extends Component {
   };
 
   addGoal = goal =>
-    APIManager.post(goal)
+    APIManager.post(goal,"goals")
       .then(() => APIManager.getAll())
       .then(goals =>
         this.setState({

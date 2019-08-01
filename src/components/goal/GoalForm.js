@@ -21,7 +21,7 @@ export default class GoalForm extends Component {
   createGoal = () => {
     let newGoal = {};
     newGoal.userId = this.state.userId;
-    newGoal.rewardId = this.state.rewardId;
+    newGoal.rewardId = this.state.rewards;
     newGoal.goal = this.state.goal;
     newGoal.startDate = this.state.startDate;
     newGoal.endDate = this.state.endDate;
@@ -49,9 +49,9 @@ export default class GoalForm extends Component {
             </label>
             <fieldset>
               <label htmlFor="startDate"> Start Date</label>
-              <input type="date" name="startDate" id="startDate" />
-              <label htmlFor="startDate"> Expected Completion Date</label>
-              <input type="date" name="startDate" id="startDate" />
+              <input onChange={this.handleFieldChange} type="date" name="startDate" id="startDate" />
+              <label htmlFor="esDate"> Expected Completion Date</label>
+              <input onChange={this.handleFieldChange} type="date" name="endDate" id="endDate" />
             </fieldset>
             <input
               type="text"
