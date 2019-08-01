@@ -19,7 +19,7 @@ export default class Goal extends Component {
                   {/* <img src={trophy} alt="trophy" className="icon--trophy" /> */}
                   {this.props.goal.name}
                 </h4>
-                <h6 className="card-title">{this.props.goal}</h6>
+                <h6 className="card-title">{this.props.goal.goal}</h6>
                 <button
                   onClick={() => {
                     this.setState({ saveDisabled: true }, () =>
