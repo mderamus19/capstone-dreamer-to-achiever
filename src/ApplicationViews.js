@@ -7,6 +7,7 @@ import APIManager from "./components/modules/APIManager";
 import Login from "./components/authentication/Login";
 import Register from "./components/authentication/Register";
 import GoalForm from "./components/goal/GoalForm";
+import GoalCard from "./components/goal/GoalCard";
 
 export default class ApplicationViews extends Component {
   // Check if credentials are in local storage
@@ -20,39 +21,66 @@ export default class ApplicationViews extends Component {
 
   componentDidMount() {
     const newState = {};
-  }
-    getUserGoals = () => {
-      APIManager.getAll(sessionStorage.getItem("userId")).then(user_goals =>
-        this.setState({ goals: user_goals })
-      );
-    };
 
-    deleteGoal = id => {
-      return fetch(`http://localhost:5002/goals/${id}`, {
-        method: "DELETE"
-      })
-        .then(APIManager.getAll)
-        .then(goals => {
-          this.props.history.push("/goals");
-          this.setState({ goals: goals });
-        });
-    };
-    addGoal = goal =>
-      APIManager.post(goal)
-        .then(() => APIManager.getAll())
-        .then(goals =>
-          this.setState({
-            goals: goals
-          })
-        );
-    addReward = reward =>
-      APIManager.getAll(reward)
-        .then(() => APIManager.getAll())
-        .then(rewards =>
-          this.setState({
-            rewards: rewards
-          })
-        );
+    //fetch data
+    fetch("http://localhost:5002/goals")
+      .then(r => r.json())
+      .then(goals => (newState.goals = goals))
+      .then(() => this.setState(newState));
+  }
+
+  getUserGoals = () => {
+    APIManager.getAll(sessionStorage.getItem("userId")).then(user_goals =>
+      this.setState({ goals: user_goals })
+    );
+  };
+
+  deleteGoal = id => {
+    return fetch(`http://localhost:5002/goals/${id}`, {
+      method: "DELETE"
+    })
+      .then(APIManager.getAll)
+      .then(goals => {
+        this.props.history.push("/goals");
+        this.setState({ goals: goals });
+      });
+  };
+  deleteStep = id => {
+    return fetch(`http://localhost:5002/steps/${id}`, {
+      method: "DELETE"
+    })
+      .then(APIManager.getAll)
+      .then(steps => {
+        this.props.history.push("/steps");
+        this.setState({ steps: steps });
+      });
+  };
+
+  addGoal = goal =>
+    APIManager.post(goal)
+      .then(() => APIManager.getAll())
+      .then(goals =>
+        this.setState({
+          goals: goals
+        })
+      );
+  addStep = step =>
+    APIManager.post(step)
+      .then(() => APIManager.getAll())
+      .then(steps =>
+        this.setState({
+          steps: steps
+        })
+      );
+
+  addReward = reward =>
+    APIManager.getAll(reward)
+      .then(() => APIManager.getAll())
+      .then(rewards =>
+        this.setState({
+          rewards: rewards
+        })
+      );
 
   render() {
     return (
@@ -77,6 +105,7 @@ export default class ApplicationViews extends Component {
           render={props => {
             return (
               <GoalList
+              {...props}
                 goals={this.state.goals}
                 deleteGoal={this.state.deleteGoal}
               />
