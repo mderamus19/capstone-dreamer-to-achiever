@@ -22,9 +22,9 @@ class Register extends Component {
     }
 
     addNewUser = (user) =>
-        APIManager.post(user)
+        APIManager.post(user,"users")
         .then( newUser => {
-        sessionStorage.setItem("userId", newUser.id)
+        sessionStorage.setItem("credentials", newUser.id)
         alert("You are ready to Achieve!")
 
       })
