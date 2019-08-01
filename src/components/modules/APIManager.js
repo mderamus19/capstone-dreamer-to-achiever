@@ -6,6 +6,10 @@ export default {
   getAll() {
     return fetch(`${remoteURL}/goals`).then(data => data.json());
   },
+  getAll() {
+    return fetch(`${remoteURL}/rewards`).then(data => data.json());
+  },
+
 
   // manages login
   get(username) {
