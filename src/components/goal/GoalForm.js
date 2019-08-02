@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import StepForm from "../step/StepForm";
 
 export default class GoalForm extends Component {
   // Set initial state of how the new layout will look and store in database
@@ -60,16 +61,8 @@ export default class GoalForm extends Component {
               id="goal"
               placeholder="Enter Goal Here"
             />
-            <fieldset>
-                <label htmlFor="step"><h5>Steps To Achieve Goal</h5></label>
-            <input
-              type="text"
-              required
-              className="form-control"
-              onChange={this.handleFieldChange}
-              id="step"
-              placeholder="Enter Step Here"
-            /></fieldset>
+            <StepForm/>
+
           </div>
           <div className="form-group">
             <label htmlFor="rewards">Choose Your Reward</label>

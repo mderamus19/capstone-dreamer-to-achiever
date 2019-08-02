@@ -7,6 +7,7 @@ import APIManager from "./components/modules/APIManager";
 import Login from "./components/authentication/Login";
 import Register from "./components/authentication/Register";
 import GoalForm from "./components/goal/GoalForm";
+import StepForm from "./components/step/StepForm";
 import GoalDetail from "./components/goal/GoalDetail";
 import GoalEditForm from "./components/goal/GoalEditForm";
 
@@ -142,7 +143,7 @@ export default class ApplicationViews extends Component {
                 {...props}
                 addGoal={this.addGoal}
                 rewards={this.state.rewards}
-              />
+                />
             );
           }}
         />
