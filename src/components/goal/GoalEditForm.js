@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import APIManager from "../modules/APIManager";
-// import GoalList from "./GoalList";
 
 export default class GoalEditForm extends Component {
   // Set initial state
@@ -21,14 +19,15 @@ export default class GoalEditForm extends Component {
   updateExistingGoal = evt => {
     evt.preventDefault();
 
-    if (!this.state.rewardId) {
-      window.alert("Please select a reward");
+    if (!this.state.goal) {
+      window.alert("Please enter a goal");
     } else {
       const editedGoal = {
         id: this.props.match.params.goalId, //give it the existing id of what you are trying to update
+        userId: parseInt(this.state.userId),
         goal: this.state.goal,
-        reward: this.state.reward,
-        userId: parseInt(this.state.userId)
+        startDate:this.state.startDate,
+        endDate:this.state.endDate
       };
       // calling updateGoal
       this.props
@@ -39,21 +38,27 @@ export default class GoalEditForm extends Component {
   // sets the initial state when rendered;initially renders with
   // no data then you populate the data and update state then it is rerendered with all the data
   componentDidMount() {
-    APIManager.get(this.props.match.params.goalId).then(goal => {
+
       this.setState({
-        goal: goal.goal,
-        reward: goal.reward,
-        userId: goal.userId
+        userId: parseInt(sessionStorage.getItem("credentials")),
+        goal: this.props.goal.goal,
+        startDate:this.props.goal.startDate,
+        endDate:this.props.goal.endDate
       });
-    });
   }
 
   render() {
     return (
       <React.Fragment>
-        <form className="goalEditForm">
+        <form className="goalForm">
           <div className="form-group">
-            <label htmlFor="goal">Goal</label>
+            <fieldset>
+              <label htmlFor="startDate"> Start Date</label>
+              <input onChange={this.handleFieldChange} type="date" name="startDate" id="startDate" value ="startDate"/>
+              <label htmlFor="esDate"> Expected Completion Date</label>
+              <input onChange={this.handleFieldChange} type="date" name="endDate" id="endDate" value="endDate" />
+            </fieldset>
+            <label htmlFor="goal"><strong><h2>Goal</h2></strong></label>
             <input
               type="text"
               required
@@ -65,6 +70,16 @@ export default class GoalEditForm extends Component {
               value={this.state.goal}
             />
           </div>
+          <fieldset>
+                <label htmlFor="step"><h5>Steps To Achieve Goal</h5></label>
+            <input
+              type="text"
+              required
+              className="form-control"
+              onChange={this.handleFieldChange}
+              id="step"
+              value={this.state.steps}
+            /></fieldset>
           <button
             type="save"
             // onClick you call the existing updateExistingGoal
