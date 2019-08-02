@@ -17,7 +17,7 @@ export default class GoalCard extends Component {
             <Link className="nav-link" to={`/goals/${this.props.goal.id}`}>
               Details
             </Link>
-            {/* button to edit animal card */}
+            {/* button to edit animal card, route parameter to do a fetch call to get goals to prefill form */}
             <Button
               type="button"
               className="btn btn-success"

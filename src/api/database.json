@@ -23,66 +23,9 @@
       "id": 4
     },
     {
-      "userId": 1,
-      "goal": "hi hi ",
-      "startDate": "",
-      "endDate": "",
-      "completed": false,
-      "id": 5
-    },
-    {
-      "userId": 1,
-      "goal": "Complete MVP",
-      "startDate": "",
-      "endDate": "",
-      "completed": false,
-      "id": 6
-    },
-    {
-      "userId": 1,
-      "goal": "birthday",
-      "startDate": "",
-      "endDate": "",
-      "completed": false,
-      "id": 7
-    },
-    {
       "username": "Christy",
       "password": "love",
       "id": 9
-    },
-    {
-      "userId": null,
-      "goal": "Hello",
-      "startDate": "",
-      "endDate": "",
-      "completed": false,
-      "id": 10
-    },
-    {
-      "userId": null,
-      "goal": "To complete MVP",
-      "startDate": "",
-      "endDate": "",
-      "completed": false,
-      "id": 11
-    },
-    {
-      "userId": null,
-      "goal": "To please fix it Jesus",
-      "startDate": "",
-      "endDate": "",
-      "completed": false,
-      "id": 12
-    },
-    {
-      "userId": null,
-      "rewardId": "4",
-      "goal": "Thank you Jesus",
-      "startDate": "2019-08-08",
-      "endDate": "2019-08-16",
-      "completed": false,
-      "id": 13
     },
     {
       "username": "Heather",
@@ -92,13 +35,11 @@
   ],
   "goals": [
     {
-      "userId": 14,
-      "rewardId": "1",
-      "goal": "Yes to achieve",
+      "id": 1,
+      "userId": 1,
+      "goal": "Yes to achieve, okay",
       "startDate": "2019-08-02",
-      "endDate": "2019-08-04",
-      "completed": false,
-      "id": 1
+      "endDate": "2019-08-04"
     },
     {
       "userId": 14,

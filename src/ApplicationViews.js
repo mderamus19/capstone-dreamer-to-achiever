@@ -1,4 +1,4 @@
-import { Route, Redirect } from "react-router-dom";
+import { Route } from "react-router-dom";
 import React, { Component } from "react";
 import GoalList from "./components/goal/GoalList";
 // import StepList from './components/step/StepList'
@@ -17,6 +17,7 @@ export default class ApplicationViews extends Component {
   state = {
     goals: [],
     rewards: [],
+    steps: [],
     journals: []
   };
 
@@ -118,6 +119,7 @@ export default class ApplicationViews extends Component {
             );
           }}
         />
+        {/* routes for goals */}
         <Route
           exact
           path="/goals"
@@ -135,7 +137,6 @@ export default class ApplicationViews extends Component {
           exact
           path="/goals/new"
           render={props => {
-            console.log(this.state.rewards);
             return (
               <GoalForm
                 {...props}
@@ -166,10 +167,16 @@ export default class ApplicationViews extends Component {
         <Route
           path="/goals/:goalId(\d+)/edit"
           render={props => {
+            let goal = this.state.goals.find(
+              goal => goal.id === parseInt(props.match.params.goalId)
+            );
+            if (!goal) {
+              goal = { id: 404, goal: "Goal not found" };
+            }
             return (
               <GoalEditForm
                 {...props}
-                goals={this.state.goals}
+                goal={goal}
                 updateGoal={this.updateGoal}
               />
             );
