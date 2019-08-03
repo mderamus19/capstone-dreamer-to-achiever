@@ -13,7 +13,7 @@ export default class GoalCard extends Component {
         <div className="card-body">
           <div className="card-title">
             {/* <img src={trophy} className="icon--trophy" /> */}
-            <h5>{this.props.goal.goal}</h5>
+            <h5>{"Goal: "}{this.props.goal.goal}</h5>
             <Link className="nav-link" to={`/goals/${this.props.goal.id}`}>
               Details
             </Link>

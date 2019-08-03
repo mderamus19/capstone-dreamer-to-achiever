@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import StepForm from "../step/StepForm";
+import JournalForm from "../journal/JournalForm";
 
 export default class GoalForm extends Component {
   // Set initial state of how the new layout will look and store in database
@@ -60,10 +61,11 @@ export default class GoalForm extends Component {
               onChange={this.handleFieldChange}
               id="goal"
               placeholder="Enter Goal Here"
-            />
-            <StepForm/>
+            /><hr/>
+            <StepForm/><hr/>
 
           </div>
+          <JournalForm/><hr/>
           <div className="form-group">
             <label htmlFor="rewards">Choose Your Reward</label>
             <select

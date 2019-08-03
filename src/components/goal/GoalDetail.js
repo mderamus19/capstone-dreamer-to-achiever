@@ -17,7 +17,7 @@ export default class Goal extends Component {
               <div className="card-body">
                 <h4 className="card-title">
                   {/* <img src={trophy} alt="trophy" className="icon--trophy" /> */}
-                  {this.props.goal.name}
+                  {"Goal: "}
                 </h4>
                 <h6 className="card-title">{this.props.goal.goal}</h6>
                 <button
