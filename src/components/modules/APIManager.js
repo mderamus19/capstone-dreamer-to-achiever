@@ -31,4 +31,5 @@ export default {
       body: JSON.stringify(resourceObj)
     }).then(results => results.json());
   }
+
 };

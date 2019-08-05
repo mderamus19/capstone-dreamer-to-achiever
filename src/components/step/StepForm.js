@@ -1,67 +1,65 @@
 import React, { Component } from "react";
+import { Button } from "reactstrap";
 
 export default class StepForm extends Component {
-  // Set initial state of how the new layout will look and store in database
   state = {
-    userId: parseInt(sessionStorage.getItem("credentials")),
     goalId: "",
     step: "",
-    rewards: ""
+    allSteps: []
   };
-
-  // Update state whenever an input field is edited
+  //   Update state whenever an input field is edited
   handleFieldChange = evt => {
     const stateToChange = {};
     stateToChange[evt.target.id] = evt.target.value;
     this.setState(stateToChange);
-  };
+};
 
-  createStep = () => {
-    let newStep = {};
-    newStep.userId = this.state.userId;
-    newStep.rewardId = this.state.rewards;
-    newStep.goalId = this.state.goal.Id;
-    newStep.completed = false;
-    //create the step and redirect user to step list
-    this.props.addStep(newStep).then(() => this.props.history.push("/steps"));
-  };
-  constructNewStep = evt => {
-    evt.preventDefault();
-    if (this.state.step === null) {
-      window.alert("Please enter a step");
-    } else {
-      this.createStep();
+addNextStep = e => {
+    e.preventDefault();
+    if (this.state.step !== "") {
+        let stepArray = [...this.state.allSteps];
+        let newStep = {
+            step: this.state.step,
+            completed: false
+            // key: Date.now()
+        };
+
+        stepArray.push(newStep);
+
+        this.setState({
+            allSteps: stepArray
+
+        });
+
     }
-  };
+};
 
-  render() {
-    console.log(steps);
+render() {
     return (
-      <React.Fragment>
-        <form className="StepForm">
-          <div className="form-group">
-            <label htmlFor="step">
-              <h5>Steps To Achieve Goal</h5>
-            </label>
-            <fieldset>
+        <React.Fragment>
+        <label htmlFor="step">
+          <h2>Steps To Achieve Goal</h2>
+        </label>
+        <div className="stepForm">
+          <div className="stepHeader">
+            <form onSubmit={this.addNextStep}>
               <input
-                type="text"
-                required
-                className="form-control"
-                onChange={this.handleFieldChange}
                 id="step"
-                placeholder="Enter Step Here"
-              />
-            </fieldset>
-            <Button
-              type="save"
-              onClick={this.constructNewStep}
-              className="btn btn-primary"
-            >
-              Save Step
-            </Button>
+                onChange={this.handleFieldChange}
+                placeholder="Enter step here"
+                />
+
+              <Button type="submit">add step</Button>
+            </form>
+            <div>
+              {this.state.allSteps.map(step => (
+                <ol>
+                  <li key={Date.now()}>{step.step}</li>
+                  </ol>
+                  ))}
+            </div>
           </div>
-        </form>
+        </div>
       </React.Fragment>
     );
   }
