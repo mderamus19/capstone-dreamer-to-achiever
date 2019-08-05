@@ -1,7 +1,6 @@
-import { Route } from "react-router-dom";
+import { Route, withRouter } from "react-router-dom";
 import React, { Component } from "react";
 import GoalList from "./components/goal/GoalList";
-// import StepList from './components/step/StepList'
 import JournalList from "./components/journal/JournalList";
 import APIManager from "./components/modules/APIManager";
 import Login from "./components/authentication/Login";
@@ -9,8 +8,9 @@ import Register from "./components/authentication/Register";
 import GoalForm from "./components/goal/GoalForm";
 import GoalDetail from "./components/goal/GoalDetail";
 import GoalEditForm from "./components/goal/GoalEditForm";
+// import StepDetail from "./components/step/StepDetail";
 
-export default class ApplicationViews extends Component {
+ class ApplicationViews extends Component {
   // Check if credentials are in local storage
   isAuthenticated = () => sessionStorage.getItem("credentials") !== null;
 
@@ -29,12 +29,21 @@ export default class ApplicationViews extends Component {
     fetch("http://localhost:5002/goals")
       .then(r => r.json())
       .then(goals => (newState.goals = goals))
-
       .then(() => this.setState(newState));
+
     fetch("http://localhost:5002/rewards")
       .then(r => r.json())
       .then(rewards => (newState.rewards = rewards))
+      .then(() => this.setState(newState));
 
+    fetch("http://localhost:5002/steps")
+      .then(r => r.json())
+      .then(steps => (newState.steps = steps))
+      .then(() => this.setState(newState));
+
+    fetch("http://localhost:5002/journals")
+      .then(r => r.json())
+      .then(journals => (newState.journals = journals))
       .then(() => this.setState(newState));
   }
 
@@ -66,21 +75,34 @@ export default class ApplicationViews extends Component {
       });
   };
 
-  addGoal = goal =>
+  addGoal = (goal, array) => {
+
     APIManager.post(goal,"goals")
+    .then((res) => {array.forEach(step => {
+        let newStep = {}
+        newStep.goalId = res.id
+        newStep.step = step.step
+        newStep.completed = false
+        this.addStep(newStep)
+    });} )
       .then(() => APIManager.getAll())
       .then(goals =>
         this.setState({
           goals: goals
         })
-      );
+      ).then(() => this.props.history.push("/goals"))
+
+};
 
   addStep = step =>
-    APIManager.post(step)
+    APIManager.post(step,"steps");
+
+  addJournalEntry = journalEntry =>
+    APIManager.post(journalEntry,"journals")
       .then(() => APIManager.getAll())
-      .then(steps =>
+      .then(journalEntrys =>
         this.setState({
-          steps: steps
+          journalEntrys: journalEntrys
         })
       );
 
@@ -157,11 +179,11 @@ export default class ApplicationViews extends Component {
 
             // If the goal wasn't found, create a default one
             if (!goal) {
-              goal = { id: 404, goal: "Goal not found" };
+              goal = { id: 404, goal: "POOF!Goal Deleted" };
             }
 
             return <GoalDetail goal={goal}
-            deleteGoal={this.deleteGoal} />;
+            deleteGoal={this.deleteGoal}/>;
           }}
         />
         <Route
@@ -182,6 +204,7 @@ export default class ApplicationViews extends Component {
             );
           }}
         />
+
         <Route
           exact
           path="/journals"
@@ -193,3 +216,5 @@ export default class ApplicationViews extends Component {
     );
   }
 }
+
+export default withRouter(ApplicationViews)
