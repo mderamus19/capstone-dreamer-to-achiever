@@ -10,7 +10,7 @@ export default class Goal extends Component {
   };
   //ADDED want to display goals and steps to edit and delete
   render() {
-    console.log(this.state.step);
+    console.log(this.props.goal);
     return (
       <section className="goal">
         <div key={this.props.goal.id} className="card">
@@ -21,15 +21,22 @@ export default class Goal extends Component {
             </h4>
             <h6 className="card-title">{this.props.goal.goal}</h6>
             <div>
-              "Steps: "{/* map to loop over steps and output each  */}
+              "Steps: "
               {this.props.goal.steps.map(step => (
-                <div>{step.step}</div>
+                <div key ={step.id}>{step.step}<button id = {step.id}
+               >delete</button>
+                <button id = {step.id}>edit</button></div>
               ))}
 
               <h5 className="card-title">{this.props.step}</h5>
-              <button>Edit Steps</button>
+              {/* <button on Click ={() => {
+                this.setState({saveDisabled: true }, ( ) =>
+                this.props.steps.map(step => this.deleteStep)
+                )}}>
+                  Delete Steps
+                  </button> */}
             </div>
-            <button
+            {/* <button
               onClick={() => {
                 this.setState({ saveDisabled: true }, () =>
                   this.props.deleteGoal(this.props.goal.id)
@@ -39,7 +46,7 @@ export default class Goal extends Component {
               className="card-link"
             >
               Delete Goal
-            </button>
+            </button> */}
           </div>
         </div>
       </section>
