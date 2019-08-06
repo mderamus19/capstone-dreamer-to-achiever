@@ -52,7 +52,7 @@ export default class GoalForm extends Component {
     newGoal.startDate = this.state.startDate;
     newGoal.endDate = this.state.endDate;
     newGoal.completed = false;
-    //create the goal and redirect user to goal list
+    //create the goal and redirect user to goallist
    this.props.addGoal(newGoal, this.state.allSteps)
   };
   constructNewGoal = evt => {
@@ -64,7 +64,6 @@ export default class GoalForm extends Component {
     }
   };
   render() {
-
     return (
       <React.Fragment>
         <div className="GoalForm">
@@ -82,7 +81,7 @@ export default class GoalForm extends Component {
                 name="startDate"
                 id="startDate"
               />
-              <label htmlFor="esDate"> Expected Completion Date</label>
+              <label htmlFor="endDate"> Expected Completion Date</label>
               <input
                 onChange={this.handleFieldChange}
                 type="date"
@@ -122,7 +121,6 @@ export default class GoalForm extends Component {
                 </ul>
               ))}
           </div>
-        {/* </div> */}
           <hr />
           <div className="form-group">
             <label htmlFor="rewards">Choose Your Reward</label>

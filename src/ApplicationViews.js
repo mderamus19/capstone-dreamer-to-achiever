@@ -1,14 +1,13 @@
 import { Route, withRouter } from "react-router-dom";
 import React, { Component } from "react";
 import GoalList from "./components/goal/GoalList";
-import JournalList from "./components/journal/JournalList";
+// import JournalList from "./components/journal/JournalList";
 import APIManager from "./components/modules/APIManager";
 import Login from "./components/authentication/Login";
 import Register from "./components/authentication/Register";
 import GoalForm from "./components/goal/GoalForm";
 import GoalDetail from "./components/goal/GoalDetail";
 import GoalEditForm from "./components/goal/GoalEditForm";
-// import StepDetail from "./components/step/StepDetail";
 
  class ApplicationViews extends Component {
   // Check if credentials are in local storage
@@ -26,7 +25,7 @@ import GoalEditForm from "./components/goal/GoalEditForm";
 
     //fetch data
 
-    fetch("http://localhost:5002/goals")
+    fetch("http://localhost:5002/goals?_embed=steps")
       .then(r => r.json())
       .then(goals => (newState.goals = goals))
       .then(() => this.setState(newState));
@@ -36,22 +35,12 @@ import GoalEditForm from "./components/goal/GoalEditForm";
       .then(rewards => (newState.rewards = rewards))
       .then(() => this.setState(newState));
 
-    fetch("http://localhost:5002/steps")
-      .then(r => r.json())
-      .then(steps => (newState.steps = steps))
-      .then(() => this.setState(newState));
-
-    fetch("http://localhost:5002/journals")
-      .then(r => r.json())
-      .then(journals => (newState.journals = journals))
-      .then(() => this.setState(newState));
+    // fetch("http://localhost:5002/journals")
+    //   .then(r => r.json())
+    //   .then(journals => (newState.journals = journals))
+    //   .then(() => this.setState(newState));
   }
 
-  getUserGoals = () => {
-    APIManager.getAll(sessionStorage.getItem("userId")).then(user_goals =>
-      this.setState({ goals: user_goals })
-    );
-  };
   deleteGoal = id => {
     return fetch(`http://localhost:5002/goals/${id}`, {
       method: "DELETE"
@@ -95,7 +84,7 @@ import GoalEditForm from "./components/goal/GoalEditForm";
 };
 
   addStep = step =>
-    APIManager.post(step,"steps");
+    APIManager.post(step,"steps")
 
   addJournalEntry = journalEntry =>
     APIManager.post(journalEntry,"journals")
@@ -145,11 +134,15 @@ import GoalEditForm from "./components/goal/GoalEditForm";
         <Route
           exact
           path="/goals"
+          //filter the goals to compare the credentials in session storage to the userId in goals
           render={props => {
+
+            let userGoals = this.state.goals.filter(goal =>
+              parseInt(sessionStorage.getItem("credentials")) === goal.userId)
             return (
               <GoalList
                 {...props}
-                goals={this.state.goals}
+                goals={userGoals}
                 deleteGoal={this.deleteGoal}
               />
             );
@@ -176,7 +169,6 @@ import GoalEditForm from "./components/goal/GoalEditForm";
             let goal = this.state.goals.find(
               goal => goal.id === parseInt(props.match.params.goalId)
             );
-
             // If the goal wasn't found, create a default one
             if (!goal) {
               goal = { id: 404, goal: "POOF!Goal Deleted" };
@@ -205,13 +197,13 @@ import GoalEditForm from "./components/goal/GoalEditForm";
           }}
         />
 
-        <Route
+        {/* <Route
           exact
           path="/journals"
           render={props => {
             return <JournalList journals={this.state.journals} />;
-          }}
-        />
+          }} */}
+        {/* /> */}
       </React.Fragment>
     );
   }

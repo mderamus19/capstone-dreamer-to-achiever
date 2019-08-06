@@ -3,37 +3,46 @@ import React, { Component } from "react";
 // import "./Goal.css"
 // import trophy from "./TrophyIcon.svg";
 
-
 export default class Goal extends Component {
+  state = {
+    steps: "",
+    saveDisabled: false
+  };
+  //ADDED want to display goals and steps to edit and delete
+  render() {
+    console.log(this.state.step);
+    return (
+      <section className="goal">
+        <div key={this.props.goal.id} className="card">
+          <div className="card-body">
+            <h4 className="card-title">
+              {/* <img src={trophy} alt="trophy" className="icon--trophy" /> */}
+              "Goal: "
+            </h4>
+            <h6 className="card-title">{this.props.goal.goal}</h6>
+            <div>
+              "Steps: "{/* map to loop over steps and output each  */}
+              {this.props.goal.steps.map(step => (
+                <div>{step.step}</div>
+              ))}
 
-    state = {
-        saveDisabled: false
-      };
-
-      render() {
-        return (
-          <section className="goal">
-            <div key={this.props.goal.id} className="card">
-              <div className="card-body">
-                <h4 className="card-title">
-                  {/* <img src={trophy} alt="trophy" className="icon--trophy" /> */}
-                  {"Goal: "}
-                </h4>
-                <h6 className="card-title">{this.props.goal.goal}</h6>
-                <button
-                  onClick={() => {
-                    this.setState({ saveDisabled: true }, () =>
-                      this.props.deleteGoal(this.props.goal.id)
-                    );
-                  }}
-                  disabled={this.state.saveDisabled}
-                  className="card-link"
-                >
-                  Delete
-                </button>
-              </div>
+              <h5 className="card-title">{this.props.step}</h5>
+              <button>Edit Steps</button>
             </div>
-          </section>
-        );
-      }
-    }
+            <button
+              onClick={() => {
+                this.setState({ saveDisabled: true }, () =>
+                  this.props.deleteGoal(this.props.goal.id)
+                );
+              }}
+              disabled={this.state.saveDisabled}
+              className="card-link"
+            >
+              Delete Goal
+            </button>
+          </div>
+        </div>
+      </section>
+    );
+  }
+}
