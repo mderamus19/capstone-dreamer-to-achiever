@@ -28,9 +28,8 @@ import GoalEditForm from "./components/goal/GoalEditForm";
     fetch("http://localhost:5002/goals?_embed=steps")
       .then(r => r.json())
       .then(goals => (newState.goals = goals))
-      .then(() => this.setState(newState));
-
-    fetch("http://localhost:5002/rewards")
+      .then(() => console.log(newState))
+      .then( () => fetch("http://localhost:5002/rewards"))
       .then(r => r.json())
       .then(rewards => (newState.rewards = rewards))
       .then(() => this.setState(newState));
@@ -103,6 +102,7 @@ import GoalEditForm from "./components/goal/GoalEditForm";
           rewards: rewards
         })
       );
+
   updateGoal = editedGoalObject => {
     return APIManager.put(editedGoalObject)
       .then(() => APIManager.getAll())
@@ -111,6 +111,15 @@ import GoalEditForm from "./components/goal/GoalEditForm";
           goals: goals
         });
       });
+
+  // updateStep = editedStepObject => {
+  //   return APIManager.put(editedStepObject)
+  //     .then(() => APIManager.getAll())
+  //     .then(steps => {
+  //       this.setState({
+  //         steps: steps
+  //       });
+  //     });
   };
 
   render() {
@@ -165,9 +174,10 @@ import GoalEditForm from "./components/goal/GoalEditForm";
           exact
           path="/goals/:goalId(\d+)"
           render={props => {
+            console.log(this.state.goals)
             // Find the goal with the id of the route parameter
             let goal = this.state.goals.find(
-              goal => goal.id === parseInt(props.match.params.goalId)
+              oneGoal => oneGoal.id === parseInt(props.match.params.goalId)
             );
             // If the goal wasn't found, create a default one
             if (!goal) {
