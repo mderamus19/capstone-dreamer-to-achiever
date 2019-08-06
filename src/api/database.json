@@ -99,13 +99,11 @@
       "endDate": "2019-08-06"
     },
     {
+      "id": 9,
       "userId": 1,
-      "rewardId": "3",
       "goal": "To get as much help as possible",
       "startDate": "2019-08-07",
-      "endDate": "2019-08-07",
-      "completed": false,
-      "id": 9
+      "endDate": "2019-08-07"
     }
   ],
   "steps": [
@@ -142,39 +140,9 @@
     },
     {
       "goalId": 7,
-      "step": "one ",
-      "completed": false,
-      "id": 10
-    },
-    {
-      "goalId": 7,
       "step": "two",
       "completed": false,
       "id": 11
-    },
-    {
-      "goalId": 8,
-      "step": "bjggh",
-      "completed": false,
-      "id": 12
-    },
-    {
-      "goalId": 8,
-      "step": "look",
-      "completed": false,
-      "id": 13
-    },
-    {
-      "goalId": 9,
-      "step": "today",
-      "completed": false,
-      "id": 14
-    },
-    {
-      "goalId": 9,
-      "step": "tomorrow",
-      "completed": false,
-      "id": 15
     }
   ],
   "journal": [

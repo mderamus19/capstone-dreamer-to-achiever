@@ -56,10 +56,11 @@ import GoalEditForm from "./components/goal/GoalEditForm";
     return fetch(`http://localhost:5002/steps/${id}`, {
       method: "DELETE"
     })
+      .then(e => e.json())
       .then(APIManager.getAll)
-      .then(steps => {
-        this.props.history.push("/steps");
-        this.setState({ steps: steps });
+      .then(goals => {
+        this.props.history.push("/goals");
+        this.setState({ goals: goals });
       });
   };
 
@@ -185,7 +186,7 @@ import GoalEditForm from "./components/goal/GoalEditForm";
             }
 
             return <GoalDetail goal={goal}
-            deleteGoal={this.deleteGoal}/>;
+            deleteStep={this.deleteStep}/>;
           }}
         />
         <Route
