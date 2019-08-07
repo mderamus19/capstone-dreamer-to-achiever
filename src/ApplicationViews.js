@@ -17,7 +17,6 @@ class ApplicationViews extends Component {
   state = {
     goals: [],
     rewards: [],
-    steps: [],
     journals: []
   };
 
@@ -25,9 +24,7 @@ class ApplicationViews extends Component {
     const newState = {};
 
     //fetch data
-
-    fetch("http://localhost:5002/goals?_embed=steps")
-      .then(r => r.json())
+    APIManager.getAllGoals()
       .then(goals => (newState.goals = goals))
       .then(() => console.log(newState))
       .then(() => fetch("http://localhost:5002/rewards"))
@@ -117,10 +114,10 @@ class ApplicationViews extends Component {
 
   updateStep = editedStepObject => {
     return APIManager.put(editedStepObject)
-      .then(() => APIManager.getAll())
-      .then(steps => {
+      .then(() => APIManager.getAllGoals())
+      .then(goals => {
         this.setState({
-          steps: steps
+          goals:goals
         });
       });
   };
@@ -215,11 +212,10 @@ class ApplicationViews extends Component {
         />
         <Route
           exact
-          path="/goals/steps/edit"
+          path="/steps/:stepId(\d+)/edit"
           render={props => {
             return (
               <StepEditForm {...props}
-              steps={this.step}
               updateStep={this.updateStep} />
             );
           }}

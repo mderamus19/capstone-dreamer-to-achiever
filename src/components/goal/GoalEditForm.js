@@ -70,16 +70,6 @@ export default class GoalEditForm extends Component {
               value={this.state.goal}
             />
           </div>
-          {/* <fieldset>
-                <label htmlFor="step"><h5>Steps To Achieve Goal</h5></label>
-            <input
-              type="text"
-              required
-              className="form-control"
-              onChange={this.handleFieldChange}
-              id="step"
-              value={this.state.steps}
-            /></fieldset> */}
           <button
             type="save"
             // onClick you call the existing updateExistingGoal

@@ -22,17 +22,18 @@ export default class Goal extends Component {
             <h6 className="card-title">{this.props.goal.goal}</h6>
             <div>
               "Steps: "
-              {this.props.goal.steps.map(step => (
-                <div key={step.id}>
+               {this.props.goal.steps.map(step => (
+                 <div key={step.id}>
+                 <input type="checkbox"/>
                   {step.step}
                   <button
                     id={step.id}
                     onClick={() => this.props.deleteStep(step.id)}
-                  >
+                    >
                     delete
                   </button>
                   <button id={step.id}
-                  onClick ={() => this.props.history.push(`steps/edit/${step.id}`)}>edit</button>
+                  onClick ={() => this.props.history.push(`/steps/${step.id}/edit`)}>edit</button>
                 </div>
               ))}
               <h5 className="card-title">{this.props.step}</h5>

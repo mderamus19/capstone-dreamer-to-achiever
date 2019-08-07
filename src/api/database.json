@@ -67,6 +67,15 @@
       "endDate": "2019-08-07"
     },
     {
+      "userId": null,
+      "rewardId": "4",
+      "goal": "To help me survive",
+      "startDate": "2019-08-07",
+      "endDate": "2019-08-07",
+      "completed": false,
+      "id": 10
+    },
+    {
       "id": 11,
       "userId": 1,
       "goal": "To reach MVP, today",
@@ -81,6 +90,15 @@
       "endDate": "2019-08-08",
       "completed": false,
       "id": 12
+    },
+    {
+      "userId": 1,
+      "rewardId": "2",
+      "goal": "I want to edit a step with no problems",
+      "startDate": "2019-08-08",
+      "endDate": "2019-08-14",
+      "completed": false,
+      "id": 13
     }
   ],
   "steps": [
@@ -146,10 +164,8 @@
       "id": 15
     },
     {
-      "goalId": 11,
-      "step": "one",
-      "completed": false,
-      "id": 16
+      "id": 16,
+      "step": "one for one"
     },
     {
       "goalId": 12,
@@ -168,6 +184,28 @@
       "step": "ask for lots of help",
       "completed": false,
       "id": 19
+    },
+    {
+      "goalId": 13,
+      "step": "find the problem",
+      "completed": false,
+      "id": 20
+    },
+    {
+      "id": 21,
+      "step": "fix the problem, today",
+      "completed": false,
+      "goalId": 13
+    },
+    {
+      "goalId": 13,
+      "step": "test the resolve",
+      "completed": false,
+      "id": 22
+    },
+    {
+      "id": 23,
+      "steps": "commit it, please"
     }
   ],
   "journal": [
