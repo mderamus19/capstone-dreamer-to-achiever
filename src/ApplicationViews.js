@@ -8,15 +8,15 @@ import Register from "./components/authentication/Register";
 import GoalForm from "./components/goal/GoalForm";
 import GoalDetail from "./components/goal/GoalDetail";
 import GoalEditForm from "./components/goal/GoalEditForm";
+import StepEditForm from "./components/step/StepEditForm";
 
- class ApplicationViews extends Component {
+class ApplicationViews extends Component {
   // Check if credentials are in local storage
   isAuthenticated = () => sessionStorage.getItem("credentials") !== null;
 
   state = {
     goals: [],
     rewards: [],
-    steps: [],
     journals: []
   };
 
@@ -24,12 +24,10 @@ import GoalEditForm from "./components/goal/GoalEditForm";
     const newState = {};
 
     //fetch data
-
-    fetch("http://localhost:5002/goals?_embed=steps")
-      .then(r => r.json())
+    APIManager.getAllGoals()
       .then(goals => (newState.goals = goals))
       .then(() => console.log(newState))
-      .then( () => fetch("http://localhost:5002/rewards"))
+      .then(() => fetch("http://localhost:5002/rewards"))
       .then(r => r.json())
       .then(rewards => (newState.rewards = rewards))
       .then(() => this.setState(newState));
@@ -52,7 +50,7 @@ import GoalEditForm from "./components/goal/GoalEditForm";
         })
       );
   };
-    deleteStep = id => {
+  deleteStep = id => {
     return fetch(`http://localhost:5002/steps/${id}`, {
       method: "DELETE"
     })
@@ -65,29 +63,29 @@ import GoalEditForm from "./components/goal/GoalEditForm";
   };
 
   addGoal = (goal, array) => {
-
-    APIManager.post(goal,"goals")
-    .then((res) => {array.forEach(step => {
-        let newStep = {}
-        newStep.goalId = res.id
-        newStep.step = step.step
-        newStep.completed = false
-        this.addStep(newStep)
-    });} )
+    APIManager.post(goal, "goals")
+      .then(res => {
+        array.forEach(step => {
+          let newStep = {};
+          newStep.goalId = res.id;
+          newStep.step = step.step;
+          newStep.completed = false;
+          this.addStep(newStep);
+        });
+      })
       .then(() => APIManager.getAll())
       .then(goals =>
         this.setState({
           goals: goals
         })
-      ).then(() => this.props.history.push("/goals"))
+      )
+      .then(() => this.props.history.push("/goals"));
+  };
 
-};
-
-  addStep = step =>
-    APIManager.post(step,"steps")
+  addStep = step => APIManager.post(step, "steps");
 
   addJournalEntry = journalEntry =>
-    APIManager.post(journalEntry,"journals")
+    APIManager.post(journalEntry, "journals")
       .then(() => APIManager.getAll())
       .then(journalEntrys =>
         this.setState({
@@ -112,15 +110,16 @@ import GoalEditForm from "./components/goal/GoalEditForm";
           goals: goals
         });
       });
+  };
 
-  // updateStep = editedStepObject => {
-  //   return APIManager.put(editedStepObject)
-  //     .then(() => APIManager.getAll())
-  //     .then(steps => {
-  //       this.setState({
-  //         steps: steps
-  //       });
-  //     });
+  updateStep = editedStepObject => {
+    return APIManager.put(editedStepObject)
+      .then(() => APIManager.getAllGoals())
+      .then(goals => {
+        this.setState({
+          goals:goals
+        });
+      });
   };
 
   render() {
@@ -146,9 +145,10 @@ import GoalEditForm from "./components/goal/GoalEditForm";
           path="/goals"
           //filter the goals to compare the credentials in session storage to the userId in goals
           render={props => {
-
-            let userGoals = this.state.goals.filter(goal =>
-              parseInt(sessionStorage.getItem("credentials")) === goal.userId)
+            let userGoals = this.state.goals.filter(
+              goal =>
+                parseInt(sessionStorage.getItem("credentials")) === goal.userId
+            );
             return (
               <GoalList
                 {...props}
@@ -167,7 +167,7 @@ import GoalEditForm from "./components/goal/GoalEditForm";
                 {...props}
                 addGoal={this.addGoal}
                 rewards={this.state.rewards}
-                />
+              />
             );
           }}
         />
@@ -175,7 +175,7 @@ import GoalEditForm from "./components/goal/GoalEditForm";
           exact
           path="/goals/:goalId(\d+)"
           render={props => {
-            console.log(this.state.goals)
+            console.log(this.state.goals);
             // Find the goal with the id of the route parameter
             let goal = this.state.goals.find(
               oneGoal => oneGoal.id === parseInt(props.match.params.goalId)
@@ -185,8 +185,9 @@ import GoalEditForm from "./components/goal/GoalEditForm";
               goal = { id: 404, goal: "POOF!Goal Deleted" };
             }
 
-            return <GoalDetail goal={goal}
-            deleteStep={this.deleteStep}/>;
+            return (
+              <GoalDetail goal={goal} deleteStep={this.deleteStep} {...props} />
+            );
           }}
         />
         <Route
@@ -199,15 +200,26 @@ import GoalEditForm from "./components/goal/GoalEditForm";
               goal = { id: 404, goal: "Goal not found" };
             }
             return (
-              <GoalEditForm
-                {...props}
-                goal={goal}
-                updateGoal={this.updateGoal}
-              />
+              <div>
+                <GoalEditForm
+                  {...props}
+                  goal={goal}
+                  updateGoal={this.updateGoal}
+                />
+              </div>
             );
           }}
         />
-
+        <Route
+          exact
+          path="/steps/:stepId(\d+)/edit"
+          render={props => {
+            return (
+              <StepEditForm {...props}
+              updateStep={this.updateStep} />
+            );
+          }}
+        />
         {/* <Route
           exact
           path="/journals"
@@ -220,4 +232,4 @@ import GoalEditForm from "./components/goal/GoalEditForm";
   }
 }
 
-export default withRouter(ApplicationViews)
+export default withRouter(ApplicationViews);

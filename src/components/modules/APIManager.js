@@ -3,8 +3,11 @@ export default {
   get(id) {
     return fetch(`${remoteURL}/goals/${id}`).then(data => data.json());
   },
-  getAll() {
-    return fetch(`${remoteURL}/goals`).then(data => data.json());
+  getStep(id) {
+    return fetch(`${remoteURL}/steps/${id}`).then(data => data.json());
+  },
+  getAllGoals() {
+    return fetch(`${remoteURL}/goals?_embed=steps`).then(data => data.json());
   },
 
   put(editedGoal) {
@@ -14,6 +17,16 @@ export default {
         "Content-Type": "application/json"
       },
       body: JSON.stringify(editedGoal)
+    }).then(data => data.json());
+  },
+  //ADDED STEP PUT
+  put(editedStep) {
+    return fetch(`${remoteURL}/steps/${editedStep.id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(editedStep)
     }).then(data => data.json());
   },
 
