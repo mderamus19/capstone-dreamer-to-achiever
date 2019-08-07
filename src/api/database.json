@@ -35,13 +35,6 @@
   ],
   "goals": [
     {
-      "id": 1,
-      "userId": 1,
-      "goal": "To complete NSS by Nov 8",
-      "startDate": "2019-08-02",
-      "endDate": "2019-08-04"
-    },
-    {
       "userId": 14,
       "rewardId": "4",
       "goal": "To reach MVP",
@@ -60,41 +53,9 @@
       "id": 3
     },
     {
-      "userId": 1,
-      "rewardId": "3",
-      "goal": "To finish It!",
-      "startDate": "2019-08-02",
-      "endDate": "2019-08-12",
-      "completed": false,
-      "id": 4
-    },
-    {
-      "id": 5,
-      "userId": 1,
-      "goal": "To update steps",
-      "startDate": "2019-08-09",
-      "endDate": "2019-08-09"
-    },
-    {
-      "userId": 1,
-      "rewardId": "1",
-      "goal": "To update session storage",
-      "startDate": "2019-08-05",
-      "endDate": "2019-08-05",
-      "completed": false,
-      "id": 6
-    },
-    {
       "id": 7,
       "userId": 1,
-      "goal": "To add steps to the goal",
-      "startDate": "2019-08-06",
-      "endDate": "2019-08-06"
-    },
-    {
-      "id": 8,
-      "userId": 1,
-      "goal": "To get'er done",
+      "goal": "To add steps to the goal, soon, soon",
       "startDate": "2019-08-06",
       "endDate": "2019-08-06"
     },
@@ -104,6 +65,22 @@
       "goal": "To get as much help as possible",
       "startDate": "2019-08-07",
       "endDate": "2019-08-07"
+    },
+    {
+      "id": 11,
+      "userId": 1,
+      "goal": "To reach MVP, today",
+      "startDate": "2019-08-07",
+      "endDate": "2019-08-07"
+    },
+    {
+      "userId": 1,
+      "rewardId": "2",
+      "goal": "To help me survive today",
+      "startDate": "2019-08-07",
+      "endDate": "2019-08-08",
+      "completed": false,
+      "id": 12
     }
   ],
   "steps": [
@@ -143,6 +120,54 @@
       "step": "two",
       "completed": false,
       "id": 11
+    },
+    {
+      "goalId": 10,
+      "step": "eat candy",
+      "completed": false,
+      "id": 12
+    },
+    {
+      "goalId": 10,
+      "step": "eat more candy",
+      "completed": false,
+      "id": 13
+    },
+    {
+      "goalId": 10,
+      "step": "eat lots of candy",
+      "completed": false,
+      "id": 14
+    },
+    {
+      "goalId": 11,
+      "step": "two",
+      "completed": false,
+      "id": 15
+    },
+    {
+      "goalId": 11,
+      "step": "one",
+      "completed": false,
+      "id": 16
+    },
+    {
+      "goalId": 12,
+      "step": "get help",
+      "completed": false,
+      "id": 17
+    },
+    {
+      "goalId": 12,
+      "step": "ask for help",
+      "completed": false,
+      "id": 18
+    },
+    {
+      "goalId": 12,
+      "step": "ask for lots of help",
+      "completed": false,
+      "id": 19
     }
   ],
   "journal": [

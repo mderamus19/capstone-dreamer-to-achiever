@@ -70,7 +70,7 @@ export default class GoalEditForm extends Component {
               value={this.state.goal}
             />
           </div>
-          <fieldset>
+          {/* <fieldset>
                 <label htmlFor="step"><h5>Steps To Achieve Goal</h5></label>
             <input
               type="text"
@@ -79,7 +79,7 @@ export default class GoalEditForm extends Component {
               onChange={this.handleFieldChange}
               id="step"
               value={this.state.steps}
-            /></fieldset>
+            /></fieldset> */}
           <button
             type="save"
             // onClick you call the existing updateExistingGoal
