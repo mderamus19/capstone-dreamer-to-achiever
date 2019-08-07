@@ -23,8 +23,8 @@ export default class Goal extends Component {
             <div>
               "Steps: "
               {this.props.goal.steps.map(step => (
-                <div key ={step.id}>{step.step}<button id = {step.id}
-               >delete</button>
+                <div key = {step.id}>{step.step}<button id = {step.id}
+              onClick = {() =>this.props.deleteStep(step.id)} >delete</button>
                 <button id = {step.id}>edit</button></div>
               ))}
 
