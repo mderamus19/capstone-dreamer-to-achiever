@@ -6,13 +6,12 @@ import {
   FormGroup,
   Label,
   Input,
-  Button
+  Button,
+  Jumbotron
 } from "reactstrap";
 import "./Login.css";
 import APIManager from "../modules/APIManager";
 import { withRouter } from "react-router-dom";
-// import Register from "./Register";
-// import { Link } from "react-router-dom";
 
 class Login extends Component {
   // Set initial state
@@ -54,6 +53,9 @@ class Login extends Component {
   render() {
     return (
       <Container className="App">
+        <Jumbotron>
+          <h1>Dreamer To Achiever</h1>
+        </Jumbotron>
         <h2>Sign In</h2>
         <Form onSubmit={this.handleLogin}>
           <Col>
@@ -83,9 +85,9 @@ class Login extends Component {
               />
             </FormGroup>
           </Col>
-          <Button type="submit">Sign In</Button>
+          <Button color = "primary" size="lg" block type="submit">Login In</Button>
           <hr />
-          <Button onClick={() => this.props.history.push("/register")}>register</Button>
+          <Button color = "primary" size="lg" block onClick={() => this.props.history.push("/register")}>register</Button>
         </Form>
       </Container>
     );

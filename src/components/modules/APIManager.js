@@ -10,7 +10,7 @@ export default {
     return fetch(`${remoteURL}/goals?_embed=steps`).then(data => data.json());
   },
 
-  put(editedGoal) {
+  editGoals(editedGoal) {
     return fetch(`${remoteURL}/goals/${editedGoal.id}`, {
       method: "PUT",
       headers: {

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import {Button} from "reactstrap";
 // import GoalCard from "./GoalCard";
 // import "./Goal.css"
 // import trophy from "./TrophyIcon.svg";
@@ -26,14 +27,14 @@ export default class Goal extends Component {
                  <div key={step.id}>
                  <input type="checkbox"/>
                   {step.step}
-                  <button
+                  <Button
                     id={step.id}
                     onClick={() => this.props.deleteStep(step.id)}
                     >
                     delete
-                  </button>
-                  <button id={step.id}
-                  onClick ={() => this.props.history.push(`/steps/${step.id}/edit`)}>edit</button>
+                  </Button>
+                  <Button id={step.id}
+                  onClick ={() => this.props.history.push(`/steps/${step.id}/edit`)}>edit</Button>
                 </div>
               ))}
               <h5 className="card-title">{this.props.step}</h5>
