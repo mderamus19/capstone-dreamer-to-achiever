@@ -1,27 +1,28 @@
-import { Route, withRouter } from "react-router-dom";
-import React, { Component } from "react";
-import GoalList from "./components/goal/GoalList";
+import { Route, withRouter } from "react-router-dom"
+import React, { Component } from "react"
+import GoalList from "./components/goal/GoalList"
 // import JournalList from "./components/journal/JournalList";
-import APIManager from "./components/modules/APIManager";
-import Login from "./components/authentication/Login";
-import Register from "./components/authentication/Register";
-import GoalForm from "./components/goal/GoalForm";
-import GoalDetail from "./components/goal/GoalDetail";
-import GoalEditForm from "./components/goal/GoalEditForm";
-import StepEditForm from "./components/step/StepEditForm";
+import APIManager from "./components/modules/APIManager"
+import Login from "./components/authentication/Login"
+import Register from "./components/authentication/Register"
+import GoalForm from "./components/goal/GoalForm"
+import GoalDetail from "./components/goal/GoalDetail"
+import GoalEditForm from "./components/goal/GoalEditForm"
+import StepEditForm from "./components/step/StepEditForm"
+import { promises } from "fs";
 
 class ApplicationViews extends Component {
   // Check if credentials are in local storage
-  isAuthenticated = () => sessionStorage.getItem("credentials") !== null;
+  isAuthenticated = () => sessionStorage.getItem("credentials") !== null
 
   state = {
     goals: [],
     rewards: [],
     journals: []
-  };
+  }
 
   componentDidMount() {
-    const newState = {};
+    const newState = {}
 
     //fetch data
     APIManager.getAllGoals()
@@ -30,7 +31,7 @@ class ApplicationViews extends Component {
       .then(() => fetch("http://localhost:5002/rewards"))
       .then(r => r.json())
       .then(rewards => (newState.rewards = rewards))
-      .then(() => this.setState(newState));
+      .then(() => this.setState(newState))
 
     // fetch("http://localhost:5002/journals")
     //   .then(r => r.json())
@@ -48,41 +49,43 @@ class ApplicationViews extends Component {
         this.setState({
           goals: goals
         })
-      );
-  };
+      )
+  }
   deleteStep = id => {
+    console.log("delete step:")
     return fetch(`http://localhost:5002/steps/${id}`, {
       method: "DELETE"
     })
       .then(e => e.json())
-      .then(APIManager.getAll)
+      .then(APIManager.getAllGoals)
       .then(goals => {
-        this.props.history.push("/goals");
-        this.setState({ goals: goals });
-      });
-  };
-
-  addGoal = (goal, array) => {
-    APIManager.post(goal, "goals")
-      .then(res => {
-        array.forEach(step => {
-          let newStep = {};
-          newStep.goalId = res.id;
-          newStep.step = step.step;
-          newStep.completed = false;
-          this.addStep(newStep);
-        });
+        console.log("we got to the end of the function")
+        this.setState({ goals: goals })
+        this.props.history.push("/goals")
       })
-      .then(() => APIManager.getAll())
-      .then(goals =>
-        this.setState({
-          goals: goals
-        })
-      )
-      .then(() => this.props.history.push("/goals"));
-  };
+  }
+  // array of steps is looping through all steps then for each step it is posting to the
+  // database that returns a promise then push all the steps into the Promise Array...an
+  // array of promises
+  addGoal = (goal, array) => {
+    const promiseArr = []
+    APIManager.post(goal, "goals").then(res => {
+      array.forEach(step => {
+        let newStep = {}
+        newStep.goalId = res.id
+        newStep.step = step.step
+        newStep.completed = false
+        this.addStep(newStep).then(result => promiseArr.push(result))
+      })
+    })
 
-  addStep = step => APIManager.post(step, "steps");
+    Promise.all(promiseArr)
+      .then(() => APIManager.getAllGoals())
+      .then(goals => this.setState({ goals: goals }))
+      .then(() => this.props.history.push("/goals"))
+  }
+
+  addStep = step => APIManager.post(step, "steps")
 
   addJournalEntry = journalEntry =>
     APIManager.post(journalEntry, "journals")
@@ -91,7 +94,7 @@ class ApplicationViews extends Component {
         this.setState({
           journalEntrys: journalEntrys
         })
-      );
+      )
 
   addReward = reward =>
     APIManager.getAll(reward)
@@ -100,27 +103,27 @@ class ApplicationViews extends Component {
         this.setState({
           rewards: rewards
         })
-      );
+      )
 
   updateGoal = editedGoalObject => {
-    return APIManager.put(editedGoalObject)
-      .then(() => APIManager.getAll())
+    return APIManager.editGoals(editedGoalObject)
+      .then(() => APIManager.getAllGoals())
       .then(goals => {
         this.setState({
           goals: goals
-        });
-      });
-  };
+        })
+      })
+  }
 
   updateStep = editedStepObject => {
     return APIManager.put(editedStepObject)
       .then(() => APIManager.getAllGoals())
       .then(goals => {
         this.setState({
-          goals:goals
-        });
-      });
-  };
+          goals: goals
+        })
+      })
+  }
 
   render() {
     return (
@@ -136,7 +139,7 @@ class ApplicationViews extends Component {
                 users={this.state.users}
                 addNewUser={this.addNewUser}
               />
-            );
+            )
           }}
         />
         {/* routes for goals */}
@@ -148,14 +151,14 @@ class ApplicationViews extends Component {
             let userGoals = this.state.goals.filter(
               goal =>
                 parseInt(sessionStorage.getItem("credentials")) === goal.userId
-            );
+            )
             return (
               <GoalList
                 {...props}
                 goals={userGoals}
                 deleteGoal={this.deleteGoal}
               />
-            );
+            )
           }}
         />
         <Route
@@ -168,26 +171,26 @@ class ApplicationViews extends Component {
                 addGoal={this.addGoal}
                 rewards={this.state.rewards}
               />
-            );
+            )
           }}
         />
         <Route
           exact
           path="/goals/:goalId(\d+)"
           render={props => {
-            console.log(this.state.goals);
+            console.log(this.state.goals)
             // Find the goal with the id of the route parameter
             let goal = this.state.goals.find(
               oneGoal => oneGoal.id === parseInt(props.match.params.goalId)
-            );
+            )
             // If the goal wasn't found, create a default one
             if (!goal) {
-              goal = { id: 404, goal: "POOF!Goal Deleted" };
+              goal = { id: 404, goal: "POOF!Goal Deleted" }
             }
 
             return (
               <GoalDetail goal={goal} deleteStep={this.deleteStep} {...props} />
-            );
+            )
           }}
         />
         <Route
@@ -195,9 +198,9 @@ class ApplicationViews extends Component {
           render={props => {
             let goal = this.state.goals.find(
               goal => goal.id === parseInt(props.match.params.goalId)
-            );
+            )
             if (!goal) {
-              goal = { id: 404, goal: "Goal not found" };
+              goal = { id: 404, goal: "Goal not found" }
             }
             return (
               <div>
@@ -207,17 +210,14 @@ class ApplicationViews extends Component {
                   updateGoal={this.updateGoal}
                 />
               </div>
-            );
+            )
           }}
         />
         <Route
           exact
           path="/steps/:stepId(\d+)/edit"
           render={props => {
-            return (
-              <StepEditForm {...props}
-              updateStep={this.updateStep} />
-            );
+            return <StepEditForm {...props} updateStep={this.updateStep} />
           }}
         />
         {/* <Route
@@ -228,8 +228,8 @@ class ApplicationViews extends Component {
           }} */}
         {/* /> */}
       </React.Fragment>
-    );
+    )
   }
 }
 
-export default withRouter(ApplicationViews);
+export default withRouter(ApplicationViews)

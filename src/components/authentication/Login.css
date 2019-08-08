@@ -1,4 +1,4 @@
 .App {
-    background-color: aqua
-
+    display: flexbox;
+    text-align: center;
 }

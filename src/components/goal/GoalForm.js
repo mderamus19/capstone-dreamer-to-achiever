@@ -37,12 +37,12 @@ export default class GoalForm extends Component {
     }
   };
 
-  createSteps = () => {
-    this.state.allSteps.forEach(step => {
-     let newStep = {}
+  // createSteps = () => {
+  //   this.state.allSteps.forEach(step => {
+  //    let newStep = {}
 
-    });
-  }
+  //   });
+  // }
 
   createGoal = () => {
     let newGoal = {};
@@ -116,10 +116,10 @@ export default class GoalForm extends Component {
 
             <div>
               {this.state.allSteps.map(step => (
-                <ul>
+              <ul>
                   <li key={Date.now()}>{step.step}</li>
-                </ul>
-              ))}
+                  </ul>
+                  ))}
           </div>
           <hr />
           <div className="form-group">
