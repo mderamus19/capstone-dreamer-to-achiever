@@ -53,6 +53,7 @@ export default class StepEditForm extends Component {
   render() {
     return (
       <React.Fragment>
+        <div className="card">
         <form className="stepEditForm">
           <div form className="form-group">
             <fieldset>
@@ -73,11 +74,12 @@ export default class StepEditForm extends Component {
             type="save"
             // onClick you call the existing updateExistingStep
             onClick={this.updateExistingStep}
-            className="btn btn-primary"
+            className="button-link" outline color="primary" size="sm"
           >
             Save
           </Button>
         </form>
+        </div>
       </React.Fragment>
     );
   }

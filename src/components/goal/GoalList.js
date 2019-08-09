@@ -11,10 +11,9 @@ export default class GoalList extends Component {
     console.log("goal list rendered", this.props.goals)
     return (
       <React.Fragment>
-        <div className="goalButton">
+        <div>
           <Button
-            type="button"
-            className="btn btn-success"
+            className="createButton" size="sm"
             onClick={() => {
               this.props.history.push("/goals/new");
             }}

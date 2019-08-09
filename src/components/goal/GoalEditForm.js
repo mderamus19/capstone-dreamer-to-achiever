@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Button } from "reactstrap"
 
 export default class GoalEditForm extends Component {
   // Set initial state
@@ -50,7 +51,7 @@ export default class GoalEditForm extends Component {
   render() {
     return (
       <React.Fragment>
-        <form className="goalForm">
+        <form className="card">
           <div className="form-group">
             <fieldset>
               <label htmlFor="startDate"> Start Date</label>
@@ -70,14 +71,14 @@ export default class GoalEditForm extends Component {
               value={this.state.goal}
             />
           </div>
-          <button
+          <Button
             type="save"
+            className="save-button" outline color="primary" size="sm"
             // onClick you call the existing updateExistingGoal
             onClick={this.updateExistingGoal}
-            className="btn btn-primary"
           >
             Save
-          </button>
+          </Button>
         </form>
       </React.Fragment>
     );

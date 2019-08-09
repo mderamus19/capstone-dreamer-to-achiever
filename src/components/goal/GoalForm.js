@@ -66,7 +66,7 @@ export default class GoalForm extends Component {
   render() {
     return (
       <React.Fragment>
-        <div className="GoalForm">
+        <div className="card">
           <div className="form-group">
             <label htmlFor="goal">
               <h1>

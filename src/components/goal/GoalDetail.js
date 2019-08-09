@@ -1,40 +1,34 @@
 import React, { Component } from "react";
 import {Button} from "reactstrap";
-// import GoalCard from "./GoalCard";
-// import "./Goal.css"
-// import trophy from "./TrophyIcon.svg";
+// import checkSteps from "./CheckStepsIcon.svg";
 
 export default class Goal extends Component {
   state = {
     steps: "",
     saveDisabled: false
   };
-  //ADDED want to display goals and steps to edit and delete
   render() {
-    console.log(this.props.goal);
     return (
       <section className="goal">
         <div key={this.props.goal.id} className="card">
           <div className="card-body">
-            <h4 className="card-title">
-              {/* <img src={trophy} alt="trophy" className="icon--trophy" /> */}
-              "Goal: "
-            </h4>
-            <h6 className="card-title">{this.props.goal.goal}</h6>
+              {/* <img src={checkSteps} className="icon--checkmark" /> */}
+            <h6>{"Goal: "}{this.props.goal.goal}</h6>
             <div>
-              "Steps: "
+              Steps:
                {this.props.goal.steps.map(step => (
                  <div key={step.id}>
-                 <input type="checkbox"/>
+                 <input type="checkbox" size="lg"/>
                   {step.step}
-                  <Button
+                  <Button outline color="warning" size ="sm" id={step.id}
+                  onClick ={() => this.props.history.push(`/steps/${step.id}/edit`)}
+                  >Edit</Button> {" "}
+                  <Button outline color="danger" size="sm"
                     id={step.id}
                     onClick={() => this.props.deleteStep(step.id)}
                     >
-                    delete
+                    Delete
                   </Button>
-                  <Button id={step.id}
-                  onClick ={() => this.props.history.push(`/steps/${step.id}/edit`)}>edit</Button>
                 </div>
               ))}
               <h5 className="card-title">{this.props.step}</h5>
