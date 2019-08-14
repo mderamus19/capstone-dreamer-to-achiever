@@ -7,7 +7,7 @@ import "bootstrap/dist/css/bootstrap.min.css"
 export default class NavBar extends Component {
     render() {
         return (
-            <nav className="navbar navbar-light light-blue flex-md-nowrap p-0 shadow">
+            <nav className="navbar navbar-light bg-dark flex-md-nowrap p-0 shadow">
                 <ul className="nav nav-pills">
                     <li className="nav-item">
                         <Link className="nav-link" to="/login">Home</Link>
@@ -21,7 +21,7 @@ export default class NavBar extends Component {
                     <li className="nav-item">
                         <Link className="nav-link" to="/rewards">Rewards</Link>
                     </li>
-                    <li className="nav-item">
+                    <li className="nav-logout-item">
                         <Link onClick ={() => sessionStorage.clear()} className="nav-link" to="/login">Logout</Link>
                     </li>
                 </ul>

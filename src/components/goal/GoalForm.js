@@ -37,13 +37,6 @@ export default class GoalForm extends Component {
     }
   };
 
-  // createSteps = () => {
-  //   this.state.allSteps.forEach(step => {
-  //    let newStep = {}
-
-  //   });
-  // }
-
   createGoal = () => {
     let newGoal = {};
     newGoal.userId = this.state.userId;
@@ -66,9 +59,11 @@ export default class GoalForm extends Component {
   render() {
     return (
       <React.Fragment>
-        <div className="card">
+        <div className="goal-card">
           <div className="form-group">
             <label htmlFor="goal">
+            <h5>{"Dreamer To Achiever"}</h5>
+
               <h1>
                 <strong>GOALS</strong>
               </h1>
@@ -112,7 +107,7 @@ export default class GoalForm extends Component {
                 placeholder="Enter step here"
               />
 
-              <Button onClick={this.addNextStep}>add step</Button>
+              <Button onClick={this.addNextStep}>Add Step</Button>
 
             <div>
               {this.state.allSteps.map(step => (

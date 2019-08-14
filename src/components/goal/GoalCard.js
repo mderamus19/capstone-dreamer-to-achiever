@@ -9,7 +9,7 @@ export default class GoalCard extends Component {
   render() {
     // console.log(this.props.goal)
     return (
-      <div key={this.props.goal.id} className="card">
+        <div key={this.props.goal.id} className="card">
         <div className="card-body">
           <div className="card-title">
             <img src={trophy} className="icon--trophy" />
@@ -36,7 +36,6 @@ export default class GoalCard extends Component {
             >
               Delete Goal
             </Button>
-
           </div>
         </div>
       </div>
