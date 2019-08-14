@@ -36,165 +36,92 @@
   "goals": [
     {
       "userId": 1,
+      "rewardId": "2",
+      "goal": "To make all appointments this week.",
+      "startDate": "2019-08-13",
+      "endDate": "2019-08-16",
+      "completed": false,
+      "id": 7
+    },
+    {
+      "userId": null,
       "rewardId": "1",
-      "goal": "To help me survive",
-      "startDate": "2019-08-08",
-      "endDate": "2019-08-08",
-      "completed": false,
-      "id": 3
-    },
-    {
-      "userId": 1,
-      "rewardId": "3",
-      "goal": "To help json",
-      "startDate": "2019-08-08",
-      "endDate": "2019-08-10",
-      "completed": false,
-      "id": 4
-    },
-    {
-      "userId": 1,
-      "rewardId": "1",
-      "goal": "To work json miracles",
-      "startDate": "2019-08-08",
-      "endDate": "2019-08-09",
-      "completed": false,
-      "id": 5
-    },
-    {
-      "userId": 1,
-      "rewardId": "3",
-      "goal": "To learn what the heck Promise.all() is",
-      "startDate": "2019-08-16",
-      "endDate": "2019-08-31",
-      "completed": false,
-      "id": 6
-    },
-    {
-      "id": 8,
-      "userId": 1,
-      "goal": "Make it real",
-      "startDate": "2019-08-08",
-      "endDate": "2019-08-09"
-    },
-    {
-      "userId": 1,
-      "rewardId": "3",
-      "goal": "To complete NSS soon!",
+      "goal": "To eat healthier.",
       "startDate": "2019-08-09",
-      "endDate": "2019-08-10",
+      "endDate": "2020-08-10",
+      "completed": false,
+      "id": 8
+    },
+    {
+      "userId": 1,
+      "rewardId": "1",
+      "goal": "To complete NSS by November 8, 2019.",
+      "startDate": "2019-08-08",
+      "endDate": "2020-08-09",
       "completed": false,
       "id": 9
     }
   ],
   "steps": [
     {
-      "goalId": 3,
-      "step": "get help from madi",
+      "id": 22,
+      "step": "Follow up with scheduler",
       "completed": false,
-      "id": 8
+      "goalId": 7
     },
     {
-      "goalId": 3,
-      "step": "hit mvp",
+      "goalId": 7,
+      "step": "leave home on time",
       "completed": false,
-      "id": 9
+      "id": 23
     },
     {
-      "goalId": 3,
-      "step": "finish the dang project",
+      "goalId": 7,
+      "step": "verify time and date",
       "completed": false,
-      "id": 10
-    },
-    {
-      "goalId": 4,
-      "step": "stop watching me",
-      "completed": false,
-      "id": 11
-    },
-    {
-      "goalId": 4,
-      "step": "whatttttt just happened",
-      "completed": false,
-      "id": 12
-    },
-    {
-      "goalId": 4,
-      "step": "now watch me",
-      "completed": false,
-      "id": 13
-    },
-    {
-      "goalId": 5,
-      "step": "watch it",
-      "completed": false,
-      "id": 14
-    },
-    {
-      "goalId": 5,
-      "step": "not watch it",
-      "completed": false,
-      "id": 15
-    },
-    {
-      "goalId": 5,
-      "step": "loop it",
-      "completed": false,
-      "id": 16
-    },
-    {
-      "goalId": 5,
-      "step": "stoop low",
-      "completed": false,
-      "id": 17
-    },
-    {
-      "goalId": 6,
-      "step": "google it",
-      "completed": false,
-      "id": 18
-    },
-    {
-      "goalId": 6,
-      "step": "don't understand it",
-      "completed": false,
-      "id": 19
-    },
-    {
-      "goalId": 6,
-      "step": "ask Madi for help",
-      "completed": false,
-      "id": 20
-    },
-    {
-      "goalId": 6,
-      "step": "still don't understand it",
-      "completed": false,
-      "id": 21
+      "id": 24
     },
     {
       "goalId": 8,
-      "step": "one",
+      "step": "Drink at least 32oz of water daily",
       "completed": false,
       "id": 25
     },
     {
       "goalId": 8,
-      "step": "two",
+      "step": "Eat only fish and chicken",
       "completed": false,
       "id": 26
     },
     {
-      "goalId": 9,
-      "step": "To plan for capstones",
+      "goalId": 8,
+      "step": "Eat fresh fruits at least 2x a day",
       "completed": false,
       "id": 27
     },
     {
-      "id": 28,
-      "step": "To pray on both knees often",
+      "goalId": 8,
+      "step": "Eat fresh vegetables at least 2x per day",
       "completed": false,
-      "goalId": 9
+      "id": 28
+    },
+    {
+      "goalId": 9,
+      "step": "Ask lots of questions",
+      "completed": false,
+      "id": 29
+    },
+    {
+      "goalId": 9,
+      "step": "actively participate in group assignments",
+      "completed": false,
+      "id": 30
+    },
+    {
+      "goalId": 9,
+      "step": "complete practice exercises",
+      "completed": false,
+      "id": 31
     }
   ],
   "journal": [],

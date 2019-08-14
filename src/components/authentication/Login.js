@@ -85,9 +85,9 @@ class Login extends Component {
               />
             </FormGroup>
           </Col>
-          <Button color = "primary" size="lg" block type="submit">Login In</Button>
+          <Button color = "primary" size="lg" type="submit">Login</Button>
           <hr />
-          <Button color = "primary" size="lg" block onClick={() => this.props.history.push("/register")}>register</Button>
+          <Button color = "primary" size="lg" onClick={() => this.props.history.push("/register")}>register</Button>
         </Form>
       </Container>
     );

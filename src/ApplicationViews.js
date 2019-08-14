@@ -9,7 +9,7 @@ import GoalForm from "./components/goal/GoalForm"
 import GoalDetail from "./components/goal/GoalDetail"
 import GoalEditForm from "./components/goal/GoalEditForm"
 import StepEditForm from "./components/step/StepEditForm"
-import { promises } from "fs";
+// import { promises } from "fs";
 
 class ApplicationViews extends Component {
   // Check if credentials are in local storage
@@ -220,13 +220,13 @@ class ApplicationViews extends Component {
             return <StepEditForm {...props} updateStep={this.updateStep} />
           }}
         />
-        {/* <Route
+         {/* <Route
           exact
           path="/journals"
           render={props => {
-            return <JournalList journals={this.state.journals} />;
-          }} */}
-        {/* /> */}
+            return <JournalList journals={this.state.journals} />
+          }}
+        /> */}
       </React.Fragment>
     )
   }

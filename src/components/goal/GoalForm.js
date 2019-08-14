@@ -37,13 +37,6 @@ export default class GoalForm extends Component {
     }
   };
 
-  // createSteps = () => {
-  //   this.state.allSteps.forEach(step => {
-  //    let newStep = {}
-
-  //   });
-  // }
-
   createGoal = () => {
     let newGoal = {};
     newGoal.userId = this.state.userId;
@@ -66,11 +59,13 @@ export default class GoalForm extends Component {
   render() {
     return (
       <React.Fragment>
-        <div className="GoalForm">
+        <div className="goal-card">
           <div className="form-group">
             <label htmlFor="goal">
+            <h5>Dreamer To Achiever</h5>
+
               <h1>
-                <strong>GOALS</strong>
+                What results do you want to achieve this month?
               </h1>
             </label>
             <fieldset>
@@ -95,12 +90,12 @@ export default class GoalForm extends Component {
               className="form-control"
               onChange={this.handleFieldChange}
               id="goal"
-              placeholder="Enter Goal Here"
+              placeholder="Enter Planned Achievement Here"
             />
             {/* create steps to add to goals */}
             <hr />
             <label htmlFor="step">
-          <h2>Steps To Achieve Goal</h2>
+          <h2>What specific actions will you need to take?</h2>
         </label>
         </div>
         <div className="stepForm">
@@ -109,10 +104,10 @@ export default class GoalForm extends Component {
               <input
                 id="step"
                 onChange={this.handleFieldChange}
-                placeholder="Enter step here"
+                placeholder="Enter action steps here"
               />
 
-              <Button onClick={this.addNextStep}>add step</Button>
+              <Button onClick={this.addNextStep}>Add Action</Button>
 
             <div>
               {this.state.allSteps.map(step => (
@@ -142,7 +137,7 @@ export default class GoalForm extends Component {
           <Button
             type="save"
             onClick={this.constructNewGoal}
-            className="btn btn-primary"
+            className="save-button" outline color="success"
           >
             Save
           </Button>
