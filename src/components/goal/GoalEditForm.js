@@ -51,7 +51,7 @@ export default class GoalEditForm extends Component {
   render() {
     return (
       <React.Fragment>
-        <form className="card">
+        <form className="goal-edit-card">
           <div className="form-group">
             <fieldset>
               <label htmlFor="startDate"> Start Date</label>
@@ -73,7 +73,7 @@ export default class GoalEditForm extends Component {
           </div>
           <Button
             type="save"
-            className="save-button" outline color="primary" size="sm"
+            className="save-button" outline color="info" size="sm"
             // onClick you call the existing updateExistingGoal
             onClick={this.updateExistingGoal}
           >

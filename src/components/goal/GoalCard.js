@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import trophy from "./TrophyIcon.svg";
 import "./Goal.css";
-import {Button}from "reactstrap";
+import {Button }from "reactstrap";
 
 
 export default class GoalCard extends Component {
@@ -13,8 +13,8 @@ export default class GoalCard extends Component {
         <div className="card-body">
           <div className="card-title">
             <img src={trophy} className="icon--trophy" />
-            <h5>{"Goal: "}{this.props.goal.goal}</h5>
-            <Link color="warning"className="nav-link" to={`/goals/${this.props.goal.id}`}>
+            <h6>{"Goal: "}{this.props.goal.goal}</h6>
+            <Link color="warning"className="nav-step-link" to={`/goals/${this.props.goal.id}`}>
               View Steps
             </Link>
             {/* button to edit goal card, route parameter to do a fetch call to get goals to prefill form */}

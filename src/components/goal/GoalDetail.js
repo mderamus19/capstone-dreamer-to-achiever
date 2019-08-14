@@ -10,7 +10,7 @@ export default class Goal extends Component {
   render() {
     return (
       <section className="goal">
-        <div key={this.props.goal.id} className="card">
+        <div key={this.props.goal.id} className="view-step-card">
           <div className="card-body">
               {/* <img src={checkSteps} className="icon--checkmark" /> */}
             <h6>{"Goal: "}{this.props.goal.goal}</h6>
