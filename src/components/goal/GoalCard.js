@@ -13,9 +13,9 @@ export default class GoalCard extends Component {
         <div className="card-body">
           <div className="card-title">
             <img src={trophy} className="icon--trophy" />
-            <h6>{"Goal: "}{this.props.goal.goal}</h6>
+            <h6><strong>{"Goal: "}</strong>{this.props.goal.goal}</h6>
             <Link color="warning"className="nav-step-link" to={`/goals/${this.props.goal.id}`}>
-              View Steps
+              View Actions
             </Link>
             {/* button to edit goal card, route parameter to do a fetch call to get goals to prefill form */}
             <Button size="sm" outline color="warning"
@@ -27,7 +27,7 @@ export default class GoalCard extends Component {
                 );
               }}
             >
-              Edit
+              Edit Goal
             </Button>
             <Button
               onClick={() => this.props.deleteGoal(this.props.goal.id)}

@@ -13,7 +13,7 @@ export default class GoalList extends Component {
       <React.Fragment>
         <div class="row justify-content-center">
           <Button
-            className="createButton" size="sm"
+            className="createButton" size="sm" outline color="success"
             onClick={() => {
               this.props.history.push("/goals/new");
             }}

@@ -13,9 +13,9 @@ export default class Goal extends Component {
         <div key={this.props.goal.id} className="view-step-card">
           <div className="card-body">
               {/* <img src={checkSteps} className="icon--checkmark" /> */}
-            <h6>{"Goal: "}{this.props.goal.goal}</h6>
+            <h6><strong>{"Goal: "}</strong>{this.props.goal.goal}</h6>
             <div>
-              Steps:
+              <strong>Action Steps:</strong>
                {this.props.goal.steps.map(step => (
                  <div key={step.id}>
                  <input type="checkbox" size="lg"/>

@@ -64,10 +64,10 @@
   ],
   "steps": [
     {
-      "goalId": 7,
-      "step": "follow up with scheduler",
+      "id": 22,
+      "step": "Follow up with scheduler",
       "completed": false,
-      "id": 22
+      "goalId": 7
     },
     {
       "goalId": 7,

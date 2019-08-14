@@ -59,7 +59,7 @@ export default class GoalEditForm extends Component {
               <label htmlFor="esDate"> Expected Completion Date</label>
               <input onChange={this.handleFieldChange} type="date" name="endDate" id="endDate" value="endDate" />
             </fieldset>
-            <label htmlFor="goal"><strong><h2>Goal</h2></strong></label>
+            <label htmlFor="goal"><strong><h4>Goal:</h4></strong></label>
             <input
               type="text"
               required
@@ -73,7 +73,7 @@ export default class GoalEditForm extends Component {
           </div>
           <Button
             type="save"
-            className="save-button" outline color="info" size="sm"
+            className="save-button" outline color="success" size="sm"
             // onClick you call the existing updateExistingGoal
             onClick={this.updateExistingGoal}
           >
