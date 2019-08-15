@@ -18,8 +18,8 @@ export default class Goal extends Component {
               <strong>Action Steps:</strong>
                {this.props.goal.steps.map(step => (
                  <div key={step.id}>
-                 <input type="checkbox" size="lg"/>
-                  {step.step}
+                 <input type="checkbox" size="lg" className="strikethrough"/>
+                  {step.step}{" "}
                   <Button outline color="warning" size ="sm" id={step.id}
                   onClick ={() => this.props.history.push(`/steps/${step.id}/edit`)}
                   >Edit</Button> {" "}

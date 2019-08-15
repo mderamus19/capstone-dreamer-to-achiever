@@ -35,13 +35,11 @@
   ],
   "goals": [
     {
+      "id": 7,
       "userId": 1,
-      "rewardId": "2",
-      "goal": "To make all appointments this week.",
+      "goal": "To make all necessary appointments this week!",
       "startDate": "2019-08-13",
-      "endDate": "2019-08-16",
-      "completed": false,
-      "id": 7
+      "endDate": "2019-08-16"
     },
     {
       "userId": null,
@@ -65,15 +63,15 @@
   "steps": [
     {
       "id": 22,
-      "step": "Follow up with scheduler",
+      "step": "Follow up with scheduler today",
       "completed": false,
       "goalId": 7
     },
     {
-      "goalId": 7,
-      "step": "leave home on time",
+      "id": 23,
+      "step": "Leave home on time",
       "completed": false,
-      "id": 23
+      "goalId": 7
     },
     {
       "goalId": 7,

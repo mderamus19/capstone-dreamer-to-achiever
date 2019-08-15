@@ -1,7 +1,7 @@
 import { Route, withRouter } from "react-router-dom"
 import React, { Component } from "react"
 import GoalList from "./components/goal/GoalList"
-// import JournalList from "./components/journal/JournalList";
+// import JournalForm from "./components/journal/JournalForm";
 import APIManager from "./components/modules/APIManager"
 import Login from "./components/authentication/Login"
 import Register from "./components/authentication/Register"
@@ -224,7 +224,7 @@ class ApplicationViews extends Component {
           exact
           path="/journals"
           render={props => {
-            return <JournalList journals={this.state.journals} />
+            return <JournalForm journals={this.state.journals} />
           }}
         /> */}
       </React.Fragment>

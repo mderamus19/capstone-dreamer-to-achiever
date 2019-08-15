@@ -1,7 +1,7 @@
 // import { Route } from "react-router-dom";
 import React, { Component } from "react";
 // import trophy from "./GoalIcon.svg"
-import { Button, Row, Col } from "reactstrap";
+import { Button } from "reactstrap";
 import "./Goal.css";
 import GoalCard from "./GoalCard";
 
@@ -11,7 +11,7 @@ export default class GoalList extends Component {
     console.log("goal list rendered", this.props.goals)
     return (
       <React.Fragment>
-        <div class="row justify-content-center">
+        <div className="row justify-content-center">
           <Button
             className="createButton" size="sm" outline color="success"
             onClick={() => {
