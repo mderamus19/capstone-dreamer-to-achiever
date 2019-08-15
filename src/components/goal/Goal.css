@@ -34,17 +34,18 @@
     width: 50px;
         height: 50px;
 }
-.goal-edit-card {
+.color-card {
     background-color: rgb(167, 238, 167);
 }
-.step-edit-card {
-    background-color: rgb(167, 238, 167);
+.goal-title {
+    color:rgb(248, 110, 91);
+    text-align: center
 }
-.view-step-card {
-    background-color: rgb(167, 238, 167);
+.endDate {
+    padding: 0px 5px 5px 5px;
 }
-.goal-card  {
-    background-color: rgb(167, 238, 167);
+.startDate {
+    padding: 0px 5px;
 }
 
 

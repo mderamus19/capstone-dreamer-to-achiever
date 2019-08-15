@@ -2,5 +2,10 @@
     display: flexbox;
     text-align: center;
     background-color: rgb(167, 238, 167);
-
 }
+.title {
+    background-color: rgb(78, 82, 78);
+color:rgb(248, 110, 91);
+font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+}
+

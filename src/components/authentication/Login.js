@@ -53,9 +53,9 @@ class Login extends Component {
   render() {
     return (
       <Container className="App">
-        <Jumbotron>
+        <div className="title">
           <h1>Dreamer To Achiever</h1>
-        </Jumbotron>
+        </div>
         <h2>Sign In</h2>
         <Form onSubmit={this.handleLogin}>
           <Col>
@@ -85,9 +85,9 @@ class Login extends Component {
               />
             </FormGroup>
           </Col>
-          <Button color = "primary" size="lg" type="submit">Login</Button>
+          <Button color = "success" size="lg" type="submit">Login</Button>
           <hr />
-          <Button color = "primary" size="lg" onClick={() => this.props.history.push("/register")}>register</Button>
+          <Button color = "success" size="lg" onClick={() => this.props.history.push("/register")}>register</Button>
         </Form>
       </Container>
     );

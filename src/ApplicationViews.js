@@ -225,8 +225,8 @@ class ApplicationViews extends Component {
           path="/journals"
           render={props => {
             return <JournalForm journals={this.state.journals} />
-          }}
-        /> */}
+          }} */}
+        {/* /> */}
       </React.Fragment>
     )
   }

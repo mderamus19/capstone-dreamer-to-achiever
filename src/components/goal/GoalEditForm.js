@@ -51,7 +51,7 @@ export default class GoalEditForm extends Component {
   render() {
     return (
       <React.Fragment>
-        <form className="goal-edit-card">
+        <form className="color-card">
           <div className="form-group">
             <fieldset>
               <label htmlFor="startDate"> Start Date</label>

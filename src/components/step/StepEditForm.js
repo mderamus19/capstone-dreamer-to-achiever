@@ -53,7 +53,7 @@ export default class StepEditForm extends Component {
   render() {
     return (
       <React.Fragment>
-        <div className="step-edit-card">
+        <div className="color-card">
         <form className="stepEditForm">
           <div className="form-group">
             <fieldset>
