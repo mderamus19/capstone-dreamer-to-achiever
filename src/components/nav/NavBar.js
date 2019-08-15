@@ -15,12 +15,12 @@ export default class NavBar extends Component {
                     <li className="nav-item">
                         <Link className="nav-link" to="/goals">Goals</Link>
                     </li>
-                    <li className="nav-item">
+                    {/* <li className="nav-item">
                         <Link className="nav-link" to="/journals">Journals</Link>
                     </li>
                     <li className="nav-item">
                         <Link className="nav-link" to="/rewards">Rewards</Link>
-                    </li>
+                    </li> */}
                     <li className="nav-logout-item">
                         <Link onClick ={() => sessionStorage.clear()} className="nav-link" to="/login">Logout</Link>
                     </li>
