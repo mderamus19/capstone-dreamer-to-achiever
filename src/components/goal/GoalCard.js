@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import trophy from "./TrophyIcon.svg";
+import target from "./TargetIcon.svg";
 import "./Goal.css";
 import {Button }from "reactstrap";
 
@@ -12,8 +12,10 @@ export default class GoalCard extends Component {
         <div key={this.props.goal.id} className="card">
         <div className="card-body">
           <div className="card-title">
-            <img src={trophy} alt="target"className="icon--trophy" />
-            <h6><strong>{"Goal: "}</strong>{this.props.goal.goal}</h6>
+            <img src={target} alt="target"className="icon--target" />
+            <h6><strong>{"Start Date: "}</strong>{this.props.goal.startDate}</h6>
+            <h6><strong>{"Finish Date: "}</strong>{this.props.goal.endDate}</h6>
+            <h5><strong>{"Goal: "}</strong>{this.props.goal.goal}</h5>
             <Link color="warning"className="nav-step-link" to={`/goals/${this.props.goal.id}`}>
               View Actions
             </Link>
