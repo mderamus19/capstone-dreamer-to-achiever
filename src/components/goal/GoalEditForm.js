@@ -55,9 +55,9 @@ export default class GoalEditForm extends Component {
           <div className="form-group">
             <fieldset>
               <label htmlFor="startDate"> Start Date</label>
-              <input onChange={this.handleFieldChange} type="date" name="startDate" id="startDate" value ="startDate"/>
+              <input onChange={this.handleFieldChange} type="date" name="startDate" id="startDate" value ={this.state.goal.startDate}/>
               <label htmlFor="esDate"> Expected Completion Date</label>
-              <input onChange={this.handleFieldChange} type="date" name="endDate" id="endDate" value="endDate" />
+              <input onChange={this.handleFieldChange} type="date" name="endDate" id="endDate" value={this.state.goal.endDate} />
             </fieldset>
             <label htmlFor="goal"><strong><h4>Goal:</h4></strong></label>
             <input

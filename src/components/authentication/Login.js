@@ -7,7 +7,6 @@ import {
   Label,
   Input,
   Button,
-  Jumbotron
 } from "reactstrap";
 import "./Login.css";
 import APIManager from "../modules/APIManager";
